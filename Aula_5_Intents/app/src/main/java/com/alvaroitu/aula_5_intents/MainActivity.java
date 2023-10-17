@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
                     idadeSalva = Integer.parseInt(idade.getText().toString());
                     valoresSalvos.setText("Nome: " + nomeSalvo + " idade: " + idadeSalva);
                 } catch (Exception e){
-                    Toast.makeText(MainActivity.this, "Entre com valores", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Entre com valores",
+                            Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -49,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
-//                intent.putExtra("nome",nomeSalvo);
-//                intent.putExtra("idade", idadeSalva);
+                intent.putExtra("nome",nomeSalvo);
+                intent.putExtra("idade", idadeSalva);
                 startActivity(intent);
             }
         });
