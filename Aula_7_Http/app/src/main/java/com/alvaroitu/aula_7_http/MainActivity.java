@@ -40,12 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
                 MyTask task = new MyTask();
                 String urlBlockChain = "https://blockchain.info/ticker";
-//                String cep = "13309710";
-//                String cep = textoDigitado.getText().toString();
-                paisBuscado = textoDigitado.getText().toString();
-                System.out.println(paisBuscado);
-//                String urlCep = "https://viacep.com.br/ws/" + cep + "/json/";
-                task.execute(urlBlockChain);
+                String cep = textoDigitado.getText().toString();
+                String urlCep = "https://viacep.com.br/ws/" + cep + "/json/";
+                task.execute(urlCep);
             }
         });
     }
@@ -103,17 +100,17 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 JSONObject jsonObject = new JSONObject(resultado);
-//                cep = jsonObject.getString("cep");
-//                uf = jsonObject.getString("uf");
-//                logradouro = jsonObject.getString("logradouro");
-//                bairro = jsonObject.getString("bairro");
-//                localidade = jsonObject.getString("localidade");
-//                uf = jsonObject.getString("uf");
-//                pais = jsonObject.getString(paisBuscado);
+                cep = jsonObject.getString("cep");
+                uf = jsonObject.getString("uf");
+                logradouro = jsonObject.getString("logradouro");
+                bairro = jsonObject.getString("bairro");
+                localidade = jsonObject.getString("localidade");
+//
+//                pais = jsonObject.getString("BRL");
 //                JSONObject jsonObject1 = new JSONObject(pais);
 //                info = jsonObject1.getString("buy");
-                JSONObject objectPais = jsonObject.getJSONObject(paisBuscado);
-                info = objectPais.getString("buy");
+//                JSONObject objectPais = jsonObject.getJSONObject("BRL");
+//                info = objectPais.getString("buy");
 
 
 
@@ -121,10 +118,10 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            textoResultado.setText(info);
+//            textoResultado.setText(info);
 
-//            textoResultado.setText(logradouro + "\n" + bairro + "\n" +
-//                    localidade + "\n" + uf  + "\n" + cep );
+            textoResultado.setText(logradouro + "\n" + bairro + "\n" +
+                    localidade + "\n" + uf  + "\n" + cep );
 
         }
     }
